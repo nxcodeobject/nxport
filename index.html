@@ -263,19 +263,22 @@ nxport -p            <span class="t-dim"># ping semua port</span></pre>
         <div class="install-grid">
           <div class="term-card">
             <div class="term-bar"><span></span><span></span><span></span><em>Windows · MSVC</em></div>
-            <pre class="term-body">git clone https://github.com/nxcodeobject/nxport
+            <pre class="term-body"><span class="t-dim"># clone repo CLI, bukan repo website ini</span>
+git clone https://github.com/iyanrsaleh/nxport
 cd nxport
 ./build.bat          <span class="t-dim"># menghasilkan nxport.exe</span>
 
-<span class="t-dim"># tambahkan ke PATH user:</span>
-$dir = 'D:\CLI\NxPort'
+<span class="t-dim"># tambahkan folder hasil build ke PATH user:</span>
+$dir = 'C:\path\to\nxport'
 $p = [Environment]::GetEnvironmentVariable('Path','User')
-[Environment]::SetEnvironmentVariable('Path',
-  ($p.TrimEnd(';') + ';' + $dir), 'User')</pre>
+if (($p -split ';') -notcontains $dir) {
+  [Environment]::SetEnvironmentVariable('Path',
+    ($p.TrimEnd(';') + ';' + $dir), 'User')
+}</pre>
           </div>
           <div class="term-card">
             <div class="term-bar"><span></span><span></span><span></span><em>Linux · g++</em></div>
-            <pre class="term-body">git clone https://github.com/nxcodeobject/nxport
+            <pre class="term-body">git clone https://github.com/iyanrsaleh/nxport
 cd nxport
 ./build.sh           <span class="t-dim"># menghasilkan nxport</span>
 sudo install -m755 nxport /usr/local/bin/nxport</pre>

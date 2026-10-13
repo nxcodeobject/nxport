@@ -110,6 +110,7 @@ code, pre, kbd { font-family: var(--mono); }
   margin: 0; padding: 14px 16px; font-family: var(--mono); font-size: 0.62rem;
   line-height: 1.55; color: #e8d5e3; overflow-x: auto; white-space: pre;
 }
+#pasang .term-body { font-size: 0.7rem; }
 .t-dim { color: #8f6a84; }
 .t-ok { color: #4ade80; font-weight: 600; }
 .t-warn { color: #fbbf24; font-weight: 600; }
