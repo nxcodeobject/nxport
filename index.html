@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="meta.title">NXPORT — Monitor Port Interaktif untuk Windows &amp; Linux</title>
+  <meta name="description" content="NXPORT — dasbor terminal real-time untuk melihat port TCP/UDP, proses pemiliknya, dan direktori kerjanya. Kill port, health check, ekspor JSON/YAML/CSV. Tanpa dependensi." data-i18n-attr="content|meta.desc" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <img src="logo.png" alt="NXPORT" class="brand-logo" />
+        <span class="brand-text">NXPORT</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#fitur" data-i18n="nav.features">Fitur</a>
+        <a href="#dasbor" data-i18n="nav.dashboard">Dasbor</a>
+        <a href="#cli" data-i18n="nav.cli">CLI</a>
+        <a href="#pasang" data-i18n="nav.install">Pasang</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="id" class="active">ID</button>
+          <button type="button" data-lang-btn="en">EN</button>
+        </div>
+        <a class="btn btn-primary btn-sm" href="https://github.com/nxcodeobject/nxport" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.badge">nxport 1.0.0 · Windows &amp; Linux · MIT</p>
+          <h1 data-i18n-html="hero.title">Tahu <span class="accent">port siapa</span> dijalankan dari folder mana</h1>
+          <p class="lede" data-i18n-html="hero.desc">
+            Dasbor interaktif real-time di terminal: daftar port yang listen,
+            proses pemiliknya, dan <strong>direktori kerjanya</strong> — lalu
+            buka browser, kill, ping, dan kelola semuanya dari satu layar.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pasang" data-i18n="hero.cta1">Mulai Pasang</a>
+            <a class="btn btn-ghost" href="#fitur" data-i18n="hero.cta2">Lihat Fitur</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="term-card">
+            <div class="term-bar"><span></span><span></span><span></span><em>nxport</em></div>
+            <pre class="term-body"><span class="t-dim">ian@dantrik</span>:<span class="t-ok">~</span>$ nxport
+<span class="t-dim">NXPORT</span> <span class="t-ok">live</span>   19:45:34  ·  8 port
+  <span class="t-dim">CPU</span> <span class="t-ok">(9%)</span>  <span class="t-dim">RAM</span> <span class="t-warn">(78%)</span>  <span class="t-dim">Disk</span> <span class="t-ok">(14%)</span>  <span class="t-dim">Network</span> <span class="t-tag">(551.4kB/s)</span>
+  <span class="t-dim">[↑/↓] select   [Enter/o] open browser   [k] kill   [p] ping   [r] refresh   [s] settings   [q] quit</span>
+
+   LocalAddress  LocalPort  State   PID    Process                    Dir
+   ------------  ---------  ------  -----  -------------------------  ------------------------------------
+<span class="t-ok">&gt;</span>  0.0.0.0       3107       Listen  13504  node.exe <span class="t-tag">[Express]</span>         D:\Warkop\chat\
+   0.0.0.0       6080       Listen  12024  editor.exe                 D:/Website/nxport
+   0.0.0.0       7080       Listen  12024  editor.exe                 D:/Website/nxnode
+   0.0.0.0       8030       Listen  12024  editor.exe                 D:/Website/nxcodeide
+   0.0.0.0       8078       Listen  12024  editor.exe                 D:/Website/Tatiye
+   0.0.0.0       8080       Listen  1912   node.exe <span class="t-tag">[nxcode-backend]</span>  D:\Warkop\backend\
+   127.0.0.1     9026       Listen  5932   nxfire-server.exe          D:\Database\NxfireDB\
+   127.0.0.1     50266      Listen  10724  python.exe                 C:\Users\...\hermes\
+
+ <span class="t-ok">STATUS</span>  <span class="t-dim">[OK] Imported 2 running server(s) to Server History.</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITUR -->
+    <section class="section" id="fitur">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="feat.title">Fitur</h2>
+          <p class="section-subtitle" data-i18n="feat.sub">Semua yang Anda butuhkan untuk memahami dan mengelola port di mesin Anda.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon"><i data-lucide="activity"></i></div>
+            <h3 data-i18n="feat.1t">Dasbor Interaktif Real-time</h3>
+            <p data-i18n="feat.1d">Tetap hidup di terminal: navigasi panah, buka browser, kill port, ping, dan refresh — semua dari dasbor. Flicker-free, hanya menggambar ulang saat ada perubahan.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="folder-open"></i></div>
+            <h3 data-i18n="feat.2t">Kolom Dir (Direktori Kerja)</h3>
+            <p data-i18n="feat.2d">Keunggulan utama: tahu dari folder mana port dibuka — dibaca dari PEB proses (Windows) atau /proc/&lt;pid&gt;/cwd (Linux).</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="search"></i></div>
+            <h3 data-i18n="feat.3t">Pencarian Pintar</h3>
+            <p data-i18n="feat.3d">nxport node atau nxport warkop langsung memfilter berdasarkan nama proses atau folder. Filter rentang port: nxport 8000-8090.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="cpu"></i></div>
+            <h3 data-i18n="feat.4t">Sniffer Tech Stack</h3>
+            <p data-i18n="feat.4d">Kenali stack otomatis: [Next.js], [Express], [FastAPI], [Laravel], [Docker], [WSL] — plus deteksi binding publik [PUB!] untuk audit keamanan.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="layers"></i></div>
+            <h3 data-i18n="feat.5t">Pengaturan &amp; Server History</h3>
+            <p data-i18n="feat.5d">Sembunyikan folder tertentu secara permanen, simpan server favorit (folder + perintah start), lalu start/stop langsung dari dasbor.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="settings-2"></i></div>
+            <h3 data-i18n="feat.6t">Siap untuk Script &amp; CI</h3>
+            <p data-i18n="feat.6d">Mode --once dan -w (watch), ekspor --json/--yaml/--csv, nxport wait (tunggu port up), nxport find (cari port bebas), dan nxport kill &lt;port&gt; -f.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASBOR: tombol -->
+    <section class="section alt" id="dasbor">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="key.title">Kontrol Dasbor</h2>
+          <p class="section-subtitle" data-i18n="key.sub">Satu tombol untuk setiap aksi — tanpa perlu menghafal perintah panjang.</p>
+        </div>
+        <div class="keys-grid">
+          <div class="key-card"><kbd>↑</kbd><kbd>↓</kbd><span data-i18n="key.move">Pindah pilih port</span></div>
+          <div class="key-card"><kbd>Enter</kbd><kbd>o</kbd><span data-i18n="key.open">Buka http://localhost:&lt;port&gt; di browser</span></div>
+          <div class="key-card"><kbd>k</kbd><kbd>x</kbd><span data-i18n="key.kill">Kill proses pada port terpilih</span></div>
+          <div class="key-card"><kbd>p</kbd><span data-i18n="key.ping">Health check port terpilih</span></div>
+          <div class="key-card"><kbd>s</kbd><span data-i18n="key.settings">Buka menu Pengaturan</span></div>
+          <div class="key-card"><kbd>/</kbd><span data-i18n="key.search">Cari di daftar port</span></div>
+          <div class="key-card"><kbd>c</kbd><span data-i18n="key.sort">Ubah urutan (port / pid / process / dir)</span></div>
+          <div class="key-card"><kbd>r</kbd><span data-i18n="key.refresh">Refresh daftar port</span></div>
+          <div class="key-card"><kbd>q</kbd><kbd>Esc</kbd><span data-i18n="key.quit">Keluar dari dasbor</span></div>
+        </div>
+
+        <h3 class="subhead" data-i18n="set.title">Isi Menu Pengaturan (<kbd>s</kbd>)</h3>
+        <div class="settings-grid">
+          <div class="set-card">
+            <h4><i data-lucide="eye-off"></i><span data-i18n="set.1t">Hide Folder</span></h4>
+            <p data-i18n="set.1d">Sembunyikan port dari folder tertentu — disimpan permanen ke settings.conf dan diterapkan antar sesi.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="history"></i><span data-i18n="set.2t">Server History</span></h4>
+            <p data-i18n="set.2d">Daftar server tersimpan (folder + perintah start) untuk start/stop langsung dari dasbor — terisi otomatis dari port yang sedang berjalan.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="info"></i><span data-i18n="set.3t">System Info</span></h4>
+            <p data-i18n="set.3d">Ringkasan host: nama komputer, OS, serta penggunaan CPU, RAM, disk, dan network di header dasbor.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="toggle-left"></i><span data-i18n="set.4t">Show UDP &amp; All TCP States</span></h4>
+            <p data-i18n="set.4d">Tampilkan soket UDP (setara -u) dan semua status TCP, bukan hanya Listen (setara -a).</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="timer"></i><span data-i18n="set.5t">Refresh Interval</span></h4>
+            <p data-i18n="set.5d">Atur selang auto-refresh daftar port: 1–10 detik (default 2 detik).</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="rotate-ccw"></i><span data-i18n="set.6t">Reset All Settings</span></h4>
+            <p data-i18n="set.6d">Kosongkan semua pengaturan: folder tersembunyi, server history, dan preferensi kembali ke default.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="server"></i><span data-i18n="set.7t">API Server</span></h4>
+            <p data-i18n="set.7d">Jalankan/hentikan API internal (default port 7900) langsung dari menu — status running/stopped tampil di daftar.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="network"></i><span data-i18n="set.8t">API Server Port</span></h4>
+            <p data-i18n="set.8d">Ubah port API internal (1024–65535). Port harus dihentikan dulu sebelum diganti.</p>
+          </div>
+        </div>
+
+        <h3 class="subhead" data-i18n="api.title">API Server — akses data via klien</h3>
+        <p class="api-intro" data-i18n="api.intro">Aktifkan lewat menu Settings (pilih <em>API Server</em>) atau dari terminal, lalu konsumsi dari browser, script, atau tool apa pun:</p>
+        <div class="term-card wide">
+          <div class="term-bar"><span></span><span></span><span></span><em>api — http://localhost:7900</em></div>
+          <pre class="term-body"><span class="t-dim"># jalankan API server (default port 7900)</span>
+nxport serve
+nxport serve 8090     <span class="t-dim"># port kustom</span>
+
+<span class="t-dim"># endpoint yang tersedia</span>
+GET /health            <span class="t-dim"># info layanan</span>
+GET /api/ports         <span class="t-dim"># daftar port live (JSON)</span>
+GET /api/servers       <span class="t-dim"># server history (JSON)</span>
+GET /api/stats         <span class="t-dim"># CPU/RAM/Disk/Network (JSON)</span>
+GET /api/start/&lt;port&gt;  <span class="t-dim"># start server tersimpan</span>
+GET /api/stop/&lt;port&gt;   <span class="t-dim"># stop server tersimpan</span></pre>
+        </div>
+
+        <div class="compare-note" data-i18n-html="dash.status">
+          <strong>Penanda status:</strong> 🟢 port sehat/unik · 🔴 duplikat/konflik ·
+          <code>[NEW]</code>/<code>[GONE]</code> watch-diff · <code>[PUB!]</code> database terbuka ke publik ·
+          <code>[Docker]</code>/<code>[WSL]</code> kontainer
+        </div>
+      </div>
+    </section>
+
+    <!-- CLI -->
+    <section class="section" id="cli">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="cli.title">Baris Perintah</h2>
+          <p class="section-subtitle" data-i18n="cli.sub">Pengganti yang lebih cepat untuk Get-NetTCPConnection dan ss -tlnp.</p>
+        </div>
+        <div class="term-card wide">
+          <div class="term-bar"><span></span><span></span><span></span><em>terminal</em></div>
+          <pre class="term-body"><span class="t-dim"># dasbor interaktif (default)</span>
+nxport
+
+<span class="t-dim"># filter &amp; pencarian pintar</span>
+nxport 8080          <span class="t-dim"># satu port</span>
+nxport 8000-8090     <span class="t-dim"># rentang port</span>
+nxport node          <span class="t-dim"># filter proses/folder</span>
+
+<span class="t-dim"># untuk script &amp; otomasi</span>
+nxport --once        <span class="t-dim"># cetak tabel sekali</span>
+nxport --json        <span class="t-dim"># juga: --yaml, --csv</span>
+nxport kill 8080 -f  <span class="t-dim"># force kill tanpa konfirmasi</span>
+nxport wait 8080     <span class="t-dim"># tunggu sampai port aktif</span>
+nxport find          <span class="t-dim"># cari port bebas pertama</span>
+nxport -u            <span class="t-dim"># tampilkan UDP</span>
+nxport -p            <span class="t-dim"># ping semua port</span></pre>
+        </div>
+        <div class="compare-note" data-i18n-html="cli.compare">
+          <strong>Integrasi NxCode IDE:</strong> port dari <code>editor.exe</code> otomatis dipetakan ke
+          folder proyek aslinya via QSettings IDE — jadi kolom <code>Dir</code> menampilkan
+          <code>D:/Website/Tatiye</code>, bukan folder instalasi.
+        </div>
+      </div>
+    </section>
+
+    <!-- PASANG -->
+    <section class="section alt" id="pasang">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="ins.title">Cara Pasang</h2>
+          <p class="section-subtitle" data-i18n="ins.sub">Build dari source — tanpa dependensi pihak ketiga.</p>
+        </div>
+        <div class="install-grid">
+          <div class="term-card">
+            <div class="term-bar"><span></span><span></span><span></span><em>Windows · MSVC</em></div>
+            <pre class="term-body">git clone https://github.com/nxcodeobject/nxport
+cd nxport
+./build.bat          <span class="t-dim"># menghasilkan nxport.exe</span>
+
+<span class="t-dim"># tambahkan ke PATH user:</span>
+$dir = 'D:\CLI\NxPort'
+$p = [Environment]::GetEnvironmentVariable('Path','User')
+[Environment]::SetEnvironmentVariable('Path',
+  ($p.TrimEnd(';') + ';' + $dir), 'User')</pre>
+          </div>
+          <div class="term-card">
+            <div class="term-bar"><span></span><span></span><span></span><em>Linux · g++</em></div>
+            <pre class="term-body">git clone https://github.com/nxcodeobject/nxport
+cd nxport
+./build.sh           <span class="t-dim"># menghasilkan nxport</span>
+sudo install -m755 nxport /usr/local/bin/nxport</pre>
+          </div>
+        </div>
+        <p class="install-note" data-i18n="ins.note">Butuh Visual Studio (workload Desktop development with C++) di Windows, atau g++ di Linux. Baris dengan tanda “-” berarti proses tidak bisa diperiksa — jalankan sebagai administrator/root agar lebih banyak yang terbaca.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="NXPORT" class="brand-logo footer-logo" />
+        <div>
+          <strong>NXPORT</strong>
+          <p data-i18n="foot.tag">Monitor port interaktif — bagian dari ekosistem NXDOM.</p>
+        </div>
+      </div>
+      <nav class="footer-links">
+        <a href="https://github.com/nxcodeobject/nxport" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://iyanrsaleh.github.io/tatiye/" target="_blank" rel="noopener" data-i18n="foot.company">PT Tatiye Digital Solusindo</a>
+      </nav>
+      <p class="footer-copy" data-i18n="foot.copy">MIT License · © 2026 NXDOM</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
