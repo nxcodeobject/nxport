@@ -172,6 +172,19 @@ kbd {
 .compare-note strong { color: var(--text); }
 
 /* Install */
+.dl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+.dl-card {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; text-align: center; transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dl-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+.dl-card strong { color: var(--text); font-family: var(--font-display); font-size: 1.05rem; }
+.dl-icon { display: inline-flex; width: 46px; height: 46px; align-items: center; justify-content: center; background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; color: var(--accent); margin-bottom: 4px; }
+.dl-icon svg { width: 24px; height: 24px; }
+.dl-meta { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.dl-note { text-align: center; font-size: 0.85rem; margin-bottom: 8px; }
+.dl-note code { color: var(--text); background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
 .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .install-note { margin-top: 24px; text-align: center; font-size: 0.85rem; color: var(--muted); }
 
@@ -189,7 +202,7 @@ kbd {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-grid, .install-grid { grid-template-columns: 1fr; }
+  .hero-grid, .install-grid, .dl-grid { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
